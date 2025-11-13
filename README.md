@@ -1,3 +1,41 @@
+## Team Git Rules & Best Practices 
+
+## 1.	Git Usage Rules
+1	Git ignore files (.gitignore) should never be pushed to remote if they contain system-specific or sensitive files.
+2	Avoid using `git add .` or adding all files by default. Always add specific files that are required.
+3	Always pull the latest changes from the master (or main) branch before starting work on your feature branch using `git pull origin master`.
+4	Keep your branch updated regularly to avoid merge conflicts.
+5	Never commit build, log, or temporary files.
+6	Always check for migration duplication before committing. Ensure no repeated or conflicting migration timestamps.
+
+ ## 2. Migration Rules
+1	Before creating a new migration, check the existing migrations to ensure no duplicate columns or table creations.
+2	Use clear and descriptive names for migrations (e.g., `add_status_to_orders` instead of generic names).
+3	Run migrations locally before pushing to verify schema correctness using `rails db:migrate`.
+4	Never manually edit existing migrations once pushed to a shared branch.
+
+ ## 3.	Server Setup Steps
+•	Install required Ruby gems using: `bundle install` 
+•	Install JavaScript dependencies using: `yarn install` 
+•	Create the database: `rails db:create`
+•	Run all migrations: `rails db:migrate`
+•	Start the Vite development server: `vite dev` 
+• Start the Rails server: `rails s`	
+
+## 4.	Validation Best Practices
+1	Avoid adding validations to every column field by default—it can cause unexpected model-wide issues.
+2	Add validations only when necessary, i.e., when the field is required across the model’s workflow.
+3	Ensure validation logic matches business requirements and does not break existing data entries.
+4	Always test validations with both valid and invalid data before committing.
+
+## 5.	General Best Practices
+1.	Commit frequently with meaningful commit messages.
+2.Use feature branches for new features and bug fixes.
+3.Always review your code before creating a pull request.
+4.Run the test suite before pushing code to ensure stability.
+5.Follow consistent naming conventions for branches (e.g., `feature/add-user-auth`,`bugfix/fix-login-error`).
+6.Do not commit secrets, environment variables, or sensitive credentials.
+
 # Anvaya CMS
 
 ## 🧱 Overview
@@ -121,6 +159,7 @@ app/
 * [ ] Add admin feature control dashboard
 * [ ] Implement event-based audit logging
 * [ ] Prepare React SPA integration
+
 
 ---
 
